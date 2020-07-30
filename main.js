@@ -1,18 +1,56 @@
 const displayBoard = (() => {
   let gameBoard = []
+  let playerOneMoves = []
+  let playerTwoMoves = []
+  let winArray = [[1, 2, 3], [4, 5, 6], [7, 8, 9],
+             [1, 4, 7], [2, 5, 8], [3, 6, 9],
+             [1, 5, 9], [3, 5, 7]]
 
   const playerMoves = (move) => {
-    console.log(move, 'hi')
+    let alertMsg = "Pick another cell"
+    if (gameBoard.includes(move) ) {
+      document.getElementById('alert-msg').innerHTML = alertMsg
+    }
+    else {
+      gameBoard.push(move)
+      whichPlayer(move)
+    }
   }
+
+  const whichPlayer = (player) => {
+
+    if (gameBoard.length % 2 === 0) {
+      playerTwoMoves.push(player)
+      winner(playerTwoMoves)
+    }
+
+    else if (gameBoard.length % 2 !== 0) {
+      playerOneMoves.push(player)
+      winner(playerOneMoves)
+    }
+
+  }
+
+ const winner = (value) => {
+  const moves = [...value]; 
+  const sampleArray = []; 
+  winArray.map(element => { 
+  const res = element.every((item) => moves.indexOf(item) !== -1);  
+   sampleArray.push(res); 
+      if (sampleArray.includes(true)) { 
+           console.log("Yeah you win!")
+         }
+      else if (!sampleArray.includes(true) && gameBoard.length === 9 ){
+
+        console.log("It's a draw! Try again?")
+      }
+       });
+    } 
 
   return {
     playerMoves
   }
-
-
 })();
-
-
 
 const acceptInput = (value) => {
   displayBoard.playerMoves(value)
@@ -24,14 +62,5 @@ const Players = () => {
 
 const gameLogic = (() => {
 
-})();
 
-document.getElementById('button-1').addEventListener('click', acceptInput(1))
-document.getElementById('button-2').addEventListener('click', acceptInput(2))
-document.getElementById('button-3').addEventListener('click', acceptInput(3))
-document.getElementById('button-4').addEventListener('click', acceptInput(4))
-document.getElementById('button-5').addEventListener('click', acceptInput(5))
-document.getElementById('button-6').addEventListener('click', acceptInput(6))
-document.getElementById('button-7').addEventListener('click', acceptInput(7))
-document.getElementById('button-8').addEventListener('click', acceptInput(8))
-document.getElementById('button-9').addEventListener('click', acceptInput(9))
+})();
