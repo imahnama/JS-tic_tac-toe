@@ -1,0 +1,16 @@
+body{
+  margin: 0;
+}
+
+.display-board {
+  width: 300px;
+  height: 300px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin: auto;
+  margin-top: 15em;
+}
+
+.btn {
+  border: 1px solid white;
+}
