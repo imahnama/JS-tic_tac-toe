@@ -1,6 +1,8 @@
+
+let gameBoard = []
+
 const displayBoard = (() => {
-  let gameBoard = []
-  let playerOneMoves = []
+    let playerOneMoves = []
   let playerTwoMoves = []
   let winArray = [[1, 2, 3], [4, 5, 6], [7, 8, 9],
              [1, 4, 7], [2, 5, 8], [3, 6, 9],
@@ -32,12 +34,12 @@ const displayBoard = (() => {
   }
 
  const winner = (value) => {
-  const moves = [...value]; 
-  const sampleArray = []; 
-  winArray.map(element => { 
-  const res = element.every((item) => moves.indexOf(item) !== -1);  
-   sampleArray.push(res); 
-      if (sampleArray.includes(true)) { 
+  const moves = [...value];
+  const sampleArray = [];
+  winArray.map(element => {
+  const res = element.every((item) => moves.indexOf(item) !== -1);
+   sampleArray.push(res);
+      if (sampleArray.includes(true)) {
            console.log("Yeah you win!")
          }
       else if (!sampleArray.includes(true) && gameBoard.length === 9 ){
@@ -45,7 +47,7 @@ const displayBoard = (() => {
         console.log("It's a draw! Try again?")
       }
        });
-    } 
+    }
 
   return {
     playerMoves
@@ -54,13 +56,35 @@ const displayBoard = (() => {
 
 const acceptInput = (value) => {
   displayBoard.playerMoves(value)
+  gameLogic.displayChip(value)  
 }
 
 const Players = () => {
-
+  console.log("Testing players button")
 };
 
 const gameLogic = (() => {
 
+  let newArr = []
+
+  const displayChip = (value) => {
+    let chipOne = "X";
+    let chipTwo = "O";
+    if((gameBoard.length % 2 === 0) && !(newArr.includes(value))){
+      newArr.push(value)
+      document.getElementById(value).innerHTML = chipOne
+      console.log(chipTwo)
+    } else if((gameBoard.length % 2 !== 0) && !(newArr.includes(value))){
+    newArr.push(value)
+      document.getElementById(value).innerHTML = chipTwo
+      console.log(chipOne)
+    }
+  }
+
+  return {
+    displayChip
+  }
 
 })();
+
+document.getElementById("add-players-btn").addEventListener("click", Players)

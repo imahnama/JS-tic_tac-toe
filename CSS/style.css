@@ -23,3 +23,16 @@ body{
   margin: auto;
   margin-top: 8em;
 }
+
+.players-form {
+  display: block;
+  position: absolute;
+  width: 30%;
+  background-color: #D3D3D3;
+  top: 10em;
+  left: 30em;
+}
+
+.players-form button {
+  border: none;
+}
