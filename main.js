@@ -61,6 +61,14 @@ const acceptInput = (value) => {
 
 const Players = () => {
   console.log("Testing players button")
+  let playerOne = document.getElementById('player-one-input').value;
+  let playerTwo = document.getElementById('player-two-input').value;
+  if(playerOne && playerTwo){
+    document.querySelector(".players-form").classList.add("hide-players");
+    document.querySelector(".general-section").classList.remove("hide-section");
+    document.querySelector(".first-player-name").innerHTML = playerOne;
+    document.querySelector(".second-player-name").innerHTML = playerTwo;
+  }
 };
 
 const gameLogic = (() => {

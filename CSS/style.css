@@ -36,3 +36,48 @@ body{
 .players-form button {
   border: none;
 }
+
+.hide-section {
+  display: none;
+}
+
+.hide-players {
+  display: none;
+}
+
+.general-section {
+  background-color: #999;
+  width: 60%;
+  margin: auto;
+  height: 65%;
+  margin-top: 2em;
+  padding-bottom: 20px;
+}
+
+.board-name {
+  border: 2px solid red;
+  text-align: center;
+}
+
+.first-player-name {
+  border: 2px solid blue;
+  flex: 2;
+  padding: 20px;
+}
+
+.versus {
+  border: 2px solid #444;
+  padding: 20px;
+  flex: 1;
+}
+
+.second-player-name {
+  border: 2px solid green;
+  padding: 20px;
+  flex: 2;
+}
+
+.board-cell button {
+  width: 100px;
+  height: 100px;
+}
