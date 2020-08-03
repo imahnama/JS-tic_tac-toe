@@ -32,6 +32,10 @@ A Tic Tac Toe game you can play in your browser!
 
 - No istallation required.
 
+### How To Run the project
+
+- Open the index.html file in your local browser to play the game.
+
 
 ## Authors
 
