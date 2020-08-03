@@ -1,4 +1,4 @@
-body{
+body {
   margin: 0;
 }
 
@@ -19,7 +19,7 @@ body{
   display: block;
   position: absolute;
   width: 30%;
-  background-color: #D3D3D3;
+  background-color: #d3d3d3;
   top: 10em;
   left: 30em;
 }
@@ -57,7 +57,7 @@ body{
 }
 
 .general-section {
-  background-color: #DCDCDC;
+  background-color: #dcdcdc;
   width: 60%;
   margin: auto;
   height: 65%;
@@ -75,7 +75,7 @@ body{
 
 .first-player-name {
   border: 2px solid #808080;
-  background-color: #778899;
+  background-color: ##789;
   flex: 2;
   padding: 20px;
 }
@@ -103,5 +103,5 @@ body{
   color: white;
   width: 100px;
   height: 100px;
-  background-color: #20B2AA;
+  background-color: #20b2aa;
 }
