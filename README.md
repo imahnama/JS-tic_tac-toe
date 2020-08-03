@@ -11,7 +11,7 @@ A Tic Tac Toe game you can play in your browser!
 
 ## Live demo Link
 
-[live link]()
+[live link](https://raw.githack.com/imahnama/JS-tic_tac-toe/feature-factory-functions/index.html)
 
 ![Create Book](images/1.png)
 
