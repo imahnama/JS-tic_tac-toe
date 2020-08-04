@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic-Tac-Toe</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+  <section class="general-section hide-section">
+    <div class="board-name d-flex">
+      <div class="first-player-name"></div>
+      <div class="versus">
+        VS
+      </div>
+      <div class="second-player-name"></div>
+    </div>
+    <!-- <div class="alert-message" id="alert-msg">
+    </div> -->
+    <div class="display-board">
+      <div class="board-cell">
+        <button type="button" name="button"  id = "1" onclick="acceptInput(1)"></button>
+      </div>
+      <div class="board-cell">
+        <button type="button" name="button"  id = "2" onclick="acceptInput(2)"></button>
+      </div>
+      <div class="board-cell">
+          <button type="button" name="button"  id = "3" onclick="acceptInput(3)"></button>
+      </div>
+      <div class="board-cell">
+          <button type="button" name="button"  id = "4" onclick="acceptInput(4)"></button>
+      </div>
+      <div class="board-cell">
+          <button type="button" name="button"  id = "5" onclick="acceptInput(5)"></button>
+      </div>
+      <div class="board-cell">
+          <button type="button" name="button" id = "6" onclick="acceptInput(6)"></button>
+      </div>
+      <div class="board-cell">
+          <button type="button" name="button"  id = "7" onclick="acceptInput(7)"></button>
+      </div>
+      <div class="board-cell">
+          <button type="button" name="button" id = "8" onclick="acceptInput(8)"></button>
+      </div>
+      <div class="board-cell">
+          <button type="button" name="button"  id = "9" onclick="acceptInput(9)"></button>
+      </div>
+    </div>
+  </section>
+  <div class="players-form p-5">
+    <label for="playerOne">
+      Player One
+    </label>
+    <input type="text" class="form-control" id="player-one-input">
+    <label for="playerTwo">
+      Player Two
+    </label>
+    <input type="text" class="form-control" id="player-two-input">
+    <button id="add-players-btn" class="btn btn-primary mt-4">Add Player</button>
+  </div>
+
+<div class="main-restart hide-buttons">
+  <div class="restart-buttons">
+    <button type="button" name="button" class="btn btn-primary mr-2" id="restart-button">Restart</button>
+    <button type="button" name="button" class="btn btn-secondary " id="end-game-button">End Game</button>
+  </div>
+</div>
+
+</body>
+<script src="main.js"></script>
+</html>
