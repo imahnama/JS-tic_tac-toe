@@ -13,11 +13,11 @@ A Tic Tac Toe game you can play in your browser!
 
 [live link](https://raw.githack.com/imahnama/JS-tic_tac-toe/feature-factory-functions/index.html)
 
-![Create Book](images/1.png)
+![Create Book](dist/images/1.png)
 
-![Create Book](images/2.png)
+![Create Book](dist/images/2.png)
 
-![Create Book](images/3.png)
+![Create Book](dist/images/3.png)
 
 ### Prerequisites
 

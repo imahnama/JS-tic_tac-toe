@@ -1,3 +1,5 @@
+import domContent from './dom'
+
 let gameBoard = [];
 const playersArray = [];
 let playerOneMoves = [];
@@ -111,6 +113,8 @@ const gameLogic = (() => {
 const acceptInput = (value) => {
   displayBoard.playerMoves(value);
   gameLogic.displayChip(value);
+
+  console.log(value)
 };
 
 const restartButton = () => {
@@ -128,6 +132,10 @@ const endGame = () => {
   window.location.reload();
 };
 
+domContent()
+
 document.getElementById('add-players-btn').addEventListener('click', Players);
 document.getElementById('restart-button').addEventListener('click', restartButton);
 document.getElementById('end-game-button').addEventListener('click', endGame);
+
+export {acceptInput}
