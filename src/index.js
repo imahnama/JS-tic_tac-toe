@@ -1,5 +1,8 @@
 import domContent from './dom'
 
+let domContentInstance = domContent()
+domContentInstance.boardMethod()
+
 let gameBoard = [];
 const playersArray = [];
 let playerOneMoves = [];
@@ -17,31 +20,13 @@ const Players = () => {
     document.querySelector('.first-player-name').innerHTML = playerOne;
     document.querySelector('.second-player-name').innerHTML = playerTwo;
   }
+  return {playerOne, playerTwo}
 };
 
 const displayBoard = (() => {
   const winArray = [[1, 2, 3], [4, 5, 6], [7, 8, 9],
     [1, 4, 7], [2, 5, 8], [3, 6, 9],
     [1, 5, 9], [3, 5, 7]];
-
-  const clearAlert = () => {
-    const currentAlert = document.querySelector('.alert');
-    if (currentAlert) {
-      currentAlert.remove();
-    }
-  };
-  const showAlert = (massage, className) => {
-    clearAlert();
-    const div = document.createElement('div');
-    div.className = className;
-    div.appendChild(document.createTextNode(massage));
-    const mainSection = document.querySelector('.general-section');
-    const board = document.querySelector('.display-board');
-    mainSection.insertBefore(div, board);
-    setTimeout(() => {
-      clearAlert();
-    }, 2000);
-  };
 
   const winner = (value, player) => {
     const moves = [...value];
@@ -50,13 +35,13 @@ const displayBoard = (() => {
       const res = element.every((item) => moves.indexOf(item) !== -1);
       sampleArray.push(res);
       if (sampleArray.includes(true)) {
-        showAlert(`${player} has won the game!`,
+        domContentInstance.showAlert(`${player} has won the game!`,
           'alert alert-success col-md-6 mx-auto mt-4');
         setTimeout(() => {
           document.querySelector('.main-restart').classList.remove('hide-buttons');
         }, 2000);
       } else if (!sampleArray.includes(true) && gameBoard.length === 9) {
-        showAlert("It's a draw! Try again?",
+        domContentInstance.showAlert("It's a draw! Try again?",
           'alert alert-warning col-md-6 mx-auto mt-4');
         setTimeout(() => {
           document.querySelector('.main-restart').classList.remove('hide-buttons');
@@ -114,7 +99,7 @@ const acceptInput = (value) => {
   displayBoard.playerMoves(value);
   gameLogic.displayChip(value);
 
-  console.log(value)
+  console.log(val)
 };
 
 const restartButton = () => {
@@ -132,10 +117,8 @@ const endGame = () => {
   window.location.reload();
 };
 
-domContent()
-
 document.getElementById('add-players-btn').addEventListener('click', Players);
 document.getElementById('restart-button').addEventListener('click', restartButton);
 document.getElementById('end-game-button').addEventListener('click', endGame);
 
-export {acceptInput}
+export { acceptInput, displayBoard, Players, gameLogic, restartButton, endGame }

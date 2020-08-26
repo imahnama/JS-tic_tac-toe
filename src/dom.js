@@ -1,9 +1,11 @@
 import {acceptInput} from './index'
 
 const domContent = () => {
+
+  const boardMethod = () => {
   const boardSection = document.getElementById('display-board-section')
-  let buttonsArr = [{value: 1, id: 1}, {value: 2, id: 2}, {value: 3, id: 3}, {value: 4, id: 4},
-     {value: 5, id: 5}, {value: 6, id: 6}, {value: 7, id: 7}, {value: 8, id: 8}, {value: 9, id: 9}]
+  let buttonsArr = [{ id: 1}, { id: 2}, { id: 3}, {id: 4},
+     { id: 5}, { id: 6}, { id: 7}, { id: 8}, {id: 9}]
 
      for (let i = 0; i < buttonsArr.length; i++) {
        const boardCellDiv = document.createElement('div')
@@ -20,6 +22,29 @@ const domContent = () => {
        })
 
      }
+  }
+
+     const clearAlert = () => {
+       const currentAlert = document.querySelector('.alert');
+       if (currentAlert) {
+         currentAlert.remove();
+       }
+     };
+
+     const showAlert = (massage, className) => {
+       clearAlert();
+       const div = document.createElement('div');
+       div.className = className;
+       div.appendChild(document.createTextNode(massage));
+       const mainSection = document.querySelector('.general-section');
+       const board = document.querySelector('.display-board');
+       mainSection.insertBefore(div, board);
+       setTimeout(() => {
+         clearAlert();
+       }, 2000);
+     };
+
+     return {boardMethod, showAlert}
 
 }
 
