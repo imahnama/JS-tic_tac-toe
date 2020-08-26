@@ -10,16 +10,7 @@ let playerTwoMoves = [];
 let newArr = [];
 
 const Players = () => {
-  const playerOne = document.getElementById('player-one-input').value;
-  const playerTwo = document.getElementById('player-two-input').value;
-  playersArray.push(playerOne);
-  playersArray.push(playerTwo);
-  if (playerOne && playerTwo) {
-    document.querySelector('.players-form').classList.add('hide-players');
-    document.querySelector('.general-section').classList.remove('hide-section');
-    document.querySelector('.first-player-name').innerHTML = playerOne;
-    document.querySelector('.second-player-name').innerHTML = playerTwo;
-  }
+  domContentInstance.playerDomContent()
   return {playerOne, playerTwo}
 };
 
@@ -37,15 +28,11 @@ const displayBoard = (() => {
       if (sampleArray.includes(true)) {
         domContentInstance.showAlert(`${player} has won the game!`,
           'alert alert-success col-md-6 mx-auto mt-4');
-        setTimeout(() => {
-          document.querySelector('.main-restart').classList.remove('hide-buttons');
-        }, 2000);
+        domContentInstance.timeOut()
       } else if (!sampleArray.includes(true) && gameBoard.length === 9) {
         domContentInstance.showAlert("It's a draw! Try again?",
           'alert alert-warning col-md-6 mx-auto mt-4');
-        setTimeout(() => {
-          document.querySelector('.main-restart').classList.remove('hide-buttons');
-        }, 2000);
+        domContentInstance.timeOut()
       }
     });
   };
@@ -117,8 +104,6 @@ const endGame = () => {
   window.location.reload();
 };
 
-document.getElementById('add-players-btn').addEventListener('click', Players);
-document.getElementById('restart-button').addEventListener('click', restartButton);
-document.getElementById('end-game-button').addEventListener('click', endGame);
+domContentInstance.getElements()
 
-export { acceptInput, displayBoard, Players, gameLogic, restartButton, endGame }
+export { acceptInput, displayBoard, Players, gameLogic, restartButton, endGame, playersArray }

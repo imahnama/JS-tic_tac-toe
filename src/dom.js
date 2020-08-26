@@ -1,4 +1,4 @@
-import {acceptInput} from './index'
+import {acceptInput, playersArray, restartButton, Players, endGame} from './index'
 
 const domContent = () => {
 
@@ -44,7 +44,35 @@ const domContent = () => {
        }, 2000);
      };
 
-     return {boardMethod, showAlert}
+     const playerDomContent = () => {
+       
+      const playerOne = document.getElementById('player-one-input').value;
+      const playerTwo = document.getElementById('player-two-input').value;
+
+      playersArray.push(playerOne);
+      playersArray.push(playerTwo);
+
+      if (playerOne && playerTwo) {
+        document.querySelector('.players-form').classList.add('hide-players');
+        document.querySelector('.general-section').classList.remove('hide-section');
+        document.querySelector('.first-player-name').innerHTML = playerOne;
+        document.querySelector('.second-player-name').innerHTML = playerTwo;
+      }
+     }
+
+     const timeOut = () => {
+      setTimeout(() => {
+        document.querySelector('.main-restart').classList.remove('hide-buttons');
+      }, 2000);
+     }
+
+     const getElements = () => {
+      document.getElementById('add-players-btn').addEventListener('click', Players);
+      document.getElementById('restart-button').addEventListener('click', restartButton);
+      document.getElementById('end-game-button').addEventListener('click', endGame);
+     }
+
+     return {boardMethod, showAlert, playerDomContent, timeOut, getElements}
 
 }
 
