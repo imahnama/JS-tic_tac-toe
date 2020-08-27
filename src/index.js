@@ -1,109 +1,22 @@
-import domContent from './dom'
+import domContent from './dom';
+import { displayBoard, gameLogic, gameBoard } from './board';
 
-let domContentInstance = domContent()
-domContentInstance.boardMethod()
+const domContentInstance = domContent();
+domContentInstance.boardMethod();
 
-let gameBoard = [];
-const playersArray = [];
-let playerOneMoves = [];
-let playerTwoMoves = [];
-let newArr = [];
-
-const Players = () => {
-  domContentInstance.playerDomContent()
-  return {playerOne, playerTwo}
-};
-
-const displayBoard = (() => {
-  const winArray = [[1, 2, 3], [4, 5, 6], [7, 8, 9],
-    [1, 4, 7], [2, 5, 8], [3, 6, 9],
-    [1, 5, 9], [3, 5, 7]];
-
-  const winner = (value, player) => {
-    const moves = [...value];
-    const sampleArray = [];
-    winArray.map(element => {
-      const res = element.every((item) => moves.indexOf(item) !== -1);
-      sampleArray.push(res);
-      if (sampleArray.includes(true)) {
-        domContentInstance.showAlert(`${player} has won the game!`,
-          'alert alert-success col-md-6 mx-auto mt-4');
-        domContentInstance.timeOut()
-      } else if (!sampleArray.includes(true) && gameBoard.length === 9) {
-        domContentInstance.showAlert("It's a draw! Try again?",
-          'alert alert-warning col-md-6 mx-auto mt-4');
-        domContentInstance.timeOut()
-      }
-    });
-  };
-
-  const whichPlayer = (player) => {
-    const firstPlayer = playersArray[0];
-    const secondPlayer = playersArray[1];
-
-    if (gameBoard.length % 2 === 0) {
-      playerTwoMoves.push(player);
-      winner(playerTwoMoves, secondPlayer);
-    } else if (gameBoard.length % 2 !== 0) {
-      playerOneMoves.push(player);
-      winner(playerOneMoves, firstPlayer);
-    }
-  };
-
-  const playerMoves = (move) => {
-    const alertMsg = 'Pick another cell';
-    if (gameBoard.includes(move)) {
-      document.getElementById('alert-msg').innerHTML = alertMsg;
-    } else {
-      gameBoard.push(move);
-      whichPlayer(move);
-    }
-  };
-  return {
-    playerMoves,
-  };
-})();
-
-const gameLogic = (() => {
-  const displayChip = (value) => {
-    const chipOne = 'X';
-    const chipTwo = 'O';
-    if ((gameBoard.length % 2 === 0) && !(newArr.includes(value))) {
-      newArr.push(value);
-      document.getElementById(value).innerHTML = chipOne;
-    } else if ((gameBoard.length % 2 !== 0) && !(newArr.includes(value))) {
-      newArr.push(value);
-      document.getElementById(value).innerHTML = chipTwo;
-    }
-  };
-
-  return {
-    displayChip,
-  };
-})();
+const Players = () => domContentInstance.playerDomContent();
 
 const acceptInput = (value) => {
   displayBoard.playerMoves(value);
   gameLogic.displayChip(value);
-
-  console.log(val)
-};
-
-const restartButton = () => {
-  gameBoard = [];
-  playerOneMoves = [];
-  playerTwoMoves = [];
-  newArr = [];
-  for (let i = 1; i <= 9; i += 1) {
-    document.getElementById(`${i}`).innerHTML = ' ';
-  }
-  document.querySelector('.main-restart').classList.add('hide-buttons');
 };
 
 const endGame = () => {
   window.location.reload();
 };
 
-domContentInstance.getElements()
+domContentInstance.getElements();
 
-export { acceptInput, displayBoard, Players, gameLogic, restartButton, endGame, playersArray }
+export {
+  acceptInput, Players, endGame,
+};
