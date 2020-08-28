@@ -13,7 +13,7 @@ A Tic Tac Toe game you can play in your browser! Tested with Jest.
 
 ## Live demo Link
 
-[live link](https://raw.githack.com/imahnama/JS-tic_tac-toe/feature-factory-functions/index.html)
+[live link](https://rawcdn.githack.com/imahnama/JS-tic_tac-toe/64b8ae8e67109d35b2c7a5366eb62051cbf54600/dist/index.html)
 
 ![Test](dist/images/4.png)
 
