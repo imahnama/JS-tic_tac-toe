@@ -1,6 +1,6 @@
 # JS- Tic Tac Toe
 
-A Tic Tac Toe game you can play in your browser!
+A Tic Tac Toe game you can play in your browser! Tested with Jest.
 
 ## Built With
 
@@ -8,10 +8,14 @@ A Tic Tac Toe game you can play in your browser!
 - CSS,
 - JavaScript,
 - Bootstrap
+- Webpack
+- Jest
 
 ## Live demo Link
 
 [live link](https://raw.githack.com/imahnama/JS-tic_tac-toe/feature-factory-functions/index.html)
+
+![Test](dist/images/4.png)
 
 ![Create Book](dist/images/1.png)
 
