@@ -16,5 +16,9 @@
     "arrow-parens": "off",
     "array-callback-return": "off",
     "no-unused-vars": "off"
-  }
+  },
+  "ignorePatterns": [
+    "dist/",
+    "build/"
+  ]
 }
