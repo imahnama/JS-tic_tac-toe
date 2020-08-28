@@ -2,7 +2,7 @@
   "name": "tic_tac_toe",
   "version": "1.0.0",
   "description": "Tic tact toe game built with JS",
-  "private": true,
+  "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
