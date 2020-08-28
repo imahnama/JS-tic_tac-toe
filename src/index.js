@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import domContent from './dom';
 import { displayBoard, gameLogic, gameBoard } from './board';
 

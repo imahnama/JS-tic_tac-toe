@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { Players, endGame, acceptInput } from './index';
 import { restartButton, playersArray } from './board';
 

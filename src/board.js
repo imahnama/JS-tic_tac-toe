@@ -1,3 +1,7 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-unreachable */
+/* eslint-disable import/no-mutable-exports */
+
 import alert from './alert';
 
 const alertInstance = alert();
@@ -71,9 +75,11 @@ const gameLogic = (() => {
     const chipTwo = 'O';
     if ((gameBoard.length % 2 === 0) && !(newArr.includes(value))) {
       newArr.push(value);
+      return newArr;
       document.getElementById(value).innerHTML = chipOne;
-    } else if ((gameBoard.length % 2 !== 0) && !(newArr.includes(value))) {
+    } if ((gameBoard.length % 2 !== 0) && !(newArr.includes(value))) {
       newArr.push(value);
+      return newArr;
       document.getElementById(value).innerHTML = chipTwo;
     }
   };
@@ -92,6 +98,12 @@ const restartButton = () => {
     document.getElementById(`${i}`).innerHTML = ' ';
   }
   document.querySelector('.main-restart').classList.add('hide-buttons');
+  return {
+    gameBoard,
+    playerOneMoves,
+    playerTwoMoves,
+    newArr,
+  };
 };
 
 export {
